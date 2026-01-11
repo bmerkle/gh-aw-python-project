@@ -13,7 +13,7 @@ on:
   stop-after: +1mo 
 permissions:
   contents: read
-  issues: write
+  issues: read
   pull-requests: read
 network: defaults
 tools:
