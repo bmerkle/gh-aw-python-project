@@ -15,6 +15,7 @@ permissions:
   contents: read
   issues: read
   pull-requests: read
+  discussions: write
 network: defaults
 tools:
   github:
