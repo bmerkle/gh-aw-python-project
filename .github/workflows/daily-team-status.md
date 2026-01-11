@@ -22,7 +22,7 @@ tools:
 safe-outputs:
   create-discussion:
     title-prefix: "[team-status] "
-    category: "announcements"
+    category: "daily"
 source: githubnext/agentics/workflows/daily-team-status.md@7c65d81e2ac4090d4965e57c3f44c959083440d4
 ---
 
