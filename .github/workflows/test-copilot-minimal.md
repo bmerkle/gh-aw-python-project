@@ -3,7 +3,9 @@ description: Minimal test workflow to debug Copilot CLI issues
 on:
   workflow_dispatch:
 permissions:
-  contents: read
+ contents: read
+ issues: read
+ pull-requests: read
 ---
 
 # Minimal Copilot Test
