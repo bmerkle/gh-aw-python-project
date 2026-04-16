@@ -5,12 +5,27 @@ on:
     types: [opened, synchronize]
   workflow_dispatch:
 permissions: read-all
+env:
+  COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+steps:
+  - uses: actions/checkout@v4
+  - uses: actions/setup-python@v5
+    with:
+      python-version: "3.12"
+  - name: Install dev tools
+    run: |
+      python -m pip install --upgrade pip
+      python -m pip install ruff mypy
+  - name: Ruff format check
+    run: ruff format --check .
+  - name: Ruff lint
+    run: ruff check .
+  - name: Mypy type check
+    run: mypy .
 tools:
   bash:
-    - "ruff:*"
-    - "mypy:*"
     - "git:*"
-    - "pip:install:*"
   edit:
 safe-outputs:
   add-comment:
@@ -22,35 +37,23 @@ timeout-minutes: 10
 
 # Python Format and Type Check
 
-You are an AI agent that ensures Python code quality by formatting with ruff and type-checking with mypy.
+You are an AI agent that reviews the results of ruff and mypy checks that already ran as normal CI steps.
 
 ## Your Task
 
-1. **Install tools** if not already available:
-   - Install ruff: `pip install ruff`
-   - Install mypy: `pip install mypy`
+1. **Review the CI step outputs** from the preceding runner steps:
+   - `ruff format --check .` — formatting check
+   - `ruff check .` — linting check
+   - `mypy .` — type checking
 
-2. **Run ruff format** to check and fix formatting issues:
-   - Run: `ruff format .`
-   - This will automatically format all Python files
+2. **If ruff found formatting issues**, run `ruff format .` and `ruff check . --fix` to auto-fix them, then use `git status` and `git diff` to see what changed.
 
-3. **Run ruff check** for linting:
-   - Run: `ruff check . --fix`
-   - This will fix auto-fixable linting issues
-
-4. **Run mypy** for type checking:
-   - Run: `mypy .` or `mypy <source-directory>` (adjust based on project structure)
-   - Document any type errors found
-
-5. **Check for changes**:
-   - Use `git status` and `git diff` to see if formatting/linting created any changes
-
-6. **If changes were made**:
+3. **If fixes were made**:
    - Use the `create-pull-request` safe output to create a commit with the formatting fixes
    - Title: "🤖 Auto-format: Fix Python formatting and linting"
    - Body: Include a summary of what was fixed (files changed, types of fixes)
 
-7. **Add a comment** with:
+4. **Add a comment** with:
    - ✅ Summary of formatting/linting fixes applied (if any)
    - 🔍 Summary of mypy type checking results
    - ⚠️ Any type errors that need manual attention
