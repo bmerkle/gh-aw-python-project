@@ -5,9 +5,6 @@ on:
     types: [opened, synchronize]
   workflow_dispatch:
 permissions: read-all
-env:
-  COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 steps:
   - uses: actions/checkout@v4
   - uses: actions/setup-python@v5
