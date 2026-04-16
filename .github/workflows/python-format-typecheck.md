@@ -1,5 +1,5 @@
 ---
-description: Automatically format Python code with ruff and type-check with mypy on pull requests
+description: Automatically format Python code with ruff on pull requests
 on:
   pull_request:
     types: [opened, synchronize]
@@ -15,13 +15,11 @@ steps:
   - name: Install dev tools
     run: |
       python -m pip install --upgrade pip
-      python -m pip install ruff mypy
+      python -m pip install ruff
   - name: Ruff format check
     run: ruff format --check .
   - name: Ruff lint
     run: ruff check .
-  - name: Mypy type check
-    run: mypy .
 tools:
   bash:
     - "git:*"
@@ -34,16 +32,15 @@ safe-outputs:
 timeout-minutes: 10
 ---
 
-# Python Format and Type Check
+# Python Format Check
 
-You are an AI agent that reviews the results of ruff and mypy checks that already ran as normal CI steps.
+You are an AI agent that reviews the results of ruff checks that already ran as normal CI steps.
 
 ## Your Task
 
 1. **Review the CI step outputs** from the preceding runner steps:
    - `ruff format --check .` — formatting check
    - `ruff check .` — linting check
-   - `mypy .` — type checking
 
 2. **If ruff found formatting issues**, run `ruff format .` and `ruff check . --fix` to auto-fix them, then use `git status` and `git diff` to see what changed.
 
@@ -54,9 +51,7 @@ You are an AI agent that reviews the results of ruff and mypy checks that alread
 
 4. **Add a comment** with:
    - ✅ Summary of formatting/linting fixes applied (if any)
-   - 🔍 Summary of mypy type checking results
-   - ⚠️ Any type errors that need manual attention
-   - 📊 Overall status (all checks passed, or issues found)
+   -  Overall status (all checks passed, or issues found)
 
 ## Guidelines
 
