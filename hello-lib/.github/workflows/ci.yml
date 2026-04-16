@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   lint:
     name: Lint & Format Check
