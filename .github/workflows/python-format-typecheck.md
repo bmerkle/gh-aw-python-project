@@ -7,6 +7,8 @@ on:
 permissions: read-all
 steps:
   - uses: actions/checkout@v4
+    with:
+      persist-credentials: false
   - uses: actions/setup-python@v5
     with:
       python-version: "3.12"
