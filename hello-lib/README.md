@@ -33,8 +33,8 @@ print(message)  # Output: Hello, World!
 
 # Using the Greeter class
 greeter = Greeter("Alice")
-print(greeter.greet())        # Output: Hello, Alice!
-print(greeter.greet_formal()) # Output: Good day, Alice. It is a pleasure to meet you.
+print(greeter.greet())  # Output: Hello, Alice!
+print(greeter.greet_formal())  # Output: Good day, Alice. It is a pleasure to meet you.
 ```
 
 ## Development
