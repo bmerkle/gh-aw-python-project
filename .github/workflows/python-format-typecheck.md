@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
 permissions: read-all
 steps:
-  - uses: actions/checkout@v4
+  - uses: actions/checkout@v7.0.1
     with:
       persist-credentials: false
-  - uses: actions/setup-python@v5
+  - uses: actions/setup-python@v7.0.0
     with:
       python-version: "3.12"
   - name: Install dev tools
