@@ -1,2 +1,2 @@
-# Agent Performance Analyzer - 2026-10-26
-- Still no metrics/latest.json; issues readable by integrity policy: none. Action: noop.
+# Agent Performance Analyzer - 2026-10-27
+- Still no metrics/latest.json; issues filtered by integrity policy. Action: noop.
