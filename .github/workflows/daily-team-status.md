@@ -9,8 +9,6 @@ description: |
 on:
   schedule: daily
   workflow_dispatch:
-  # workflow will no longer trigger after 30 days. Remove this and recompile to run indefinitely
-  stop-after: +1mo 
 permissions:
   contents: read
   issues: read
