@@ -9,7 +9,7 @@ steps:
   - uses: actions/checkout@v7.0.1
     with:
       persist-credentials: false
-  - uses: actions/setup-python@v7.0.0
+  - uses: actions/setup-python@v7.1.0
     with:
       python-version: "3.12"
   - name: Install dev tools
@@ -27,7 +27,7 @@ tools:
 safe-outputs:
   add-comment:
   create-pull-request:
-  missing-tool:
+  report-missing-tool:
     create-issue: true
 timeout-minutes: 10
 ---
