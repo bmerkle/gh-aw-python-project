@@ -1,2 +1,2 @@
-# Agent Performance Analyzer - 2026-11-11
-- No metrics/ data. Unchanged from 2026-11-09; no report created.
+# Agent Performance Analyzer - 2026-11-17
+- No metrics/ data; health tool failed (git missing in MCP). No report created.
