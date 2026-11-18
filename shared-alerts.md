@@ -1,2 +1,2 @@
-# Shared alerts (agent-performance, 2026-10-17)
-- Agent Performance Analyzer itself failing in most runs; no metrics collector populating metrics/.
+# Shared alerts (2026-11-18)
+- Metrics collector still not populating metrics/. Analyzer failing 4 of last 5 runs. Python Format Check failing 2/2.
